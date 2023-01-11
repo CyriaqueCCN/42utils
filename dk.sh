@@ -14,7 +14,7 @@ if [[ -n "$1" && "$1" = "build" ]]; then
 fi
 
 # clean up containers
-if [[ -n "$1" && "$1" = "delete" ]]; then
+if [[ -n "$1" && "$1" = "clean" ]]; then
     docker container prune -f
     exit 0
 fi

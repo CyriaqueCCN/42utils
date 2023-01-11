@@ -44,6 +44,5 @@ if [[ -n $2 && -n $3 && $2 = "paste" ]] ; then
 fi
 
 sshpass -p $SSHPASS scp -o StrictHostKeyChecking=no -rqP "$PORT" $SOURCE/peda $LVL@$VM_IP:/tmp 2>/dev/null
-echo 'For easier debugging, type : '
-echo 'alias gdb="gdb -q -x /tmp/peda/peda.py"'
+sshpass -p $SSHPASS ssh -o StrictHostKeyChecking=no -qp "$PORT" "$LVL@$VM_IP" "echo 'alias gdb=\"gdb -q -x /tmp/peda/peda.py\"'>> /home/user/$LVL/.profile"
 sshpass -p $SSHPASS ssh -o StrictHostKeyChecking=no -qp "$PORT" "$LVL@$VM_IP"
